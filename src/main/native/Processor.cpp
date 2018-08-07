@@ -48,7 +48,7 @@ void Processor::initialize(JNIEnv *env) {
   registerNativeMethods(env);
 }
 
-bool Processor::load(const std::string& model) {
+sentencepiece::util::Status Processor::load(const std::string& model) {
   spp = new SentencePieceProcessor();
   return spp->Load(model);
 }

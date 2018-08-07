@@ -46,7 +46,7 @@ public:
   void initialize(JNIEnv *env);
   void mapFields() {}
 
-  bool load(const std::string& model);
+  sentencepiece::util::Status load(const std::string& model);
   std::vector<std::string> encodeToPieces(const std::string& str);
   std::vector<int> encodeToIds(const std::string& str);
   std::string decodePieces(const std::vector<std::string>& pieces);

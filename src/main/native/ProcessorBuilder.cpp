@@ -36,8 +36,8 @@ void ProcessorBuilder::initialize(JNIEnv *env) {
 jobject ProcessorBuilder::buildProcessor(JNIEnv *env, jobject java_this, jobject java_string) {
   Processor *processor = new Processor(env);
   JavaString model(env, (jstring)java_string);
-  bool status = processor->load(model.get());
-  if (!status) {
+  sentencepiece::util::Status status = processor->load(model.get());
+  if (!status.ok()) {
     JavaExceptionUtils::throwExceptionOfType(env, kTypeIllegalStateException, "Failed to load model: %s", model.get().c_str());
   }
   return processor->toJavaObject(env);
