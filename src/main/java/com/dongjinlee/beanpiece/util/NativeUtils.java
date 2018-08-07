@@ -55,7 +55,9 @@ public final class NativeUtils {
 
         if (arch.contains("ppc")) {
             return Architecture.PPC;
-        } else if (arch.contains("i386") || arch.contains("x86")) {
+        } else if (arch.contains("x86_64")) {
+            return Architecture.X86_64;
+        } else if (arch.contains("i386")) {
             return Architecture.I386;
         } else if (arch.contains("amd64") || arch.contains("x86_64")) {
             return Architecture.AMD64;
